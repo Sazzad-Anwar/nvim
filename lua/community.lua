@@ -24,7 +24,7 @@ return {
     commit = "289eb724e5d6fab2263e94a1ad6e54afebefafb2",
     event = "BufEnter",
     config = function()
-      vim.keymap.set("i", "<C-j>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+      vim.keymap.set("i", "<C-h>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
     end,
   },
   { "marko-cerovac/material.nvim" },
