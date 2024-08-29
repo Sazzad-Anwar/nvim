@@ -5,6 +5,7 @@
 -- This guarantees that the specs are processed before any user plugins.
 vim.opt.relativenumber = false
 vim.opt.number = true
+vim.g.material_style = "deep ocean"
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
@@ -13,17 +14,18 @@ return {
   { import = "astrocommunity.colorscheme.mellow-nvim" },
   { import = "astrocommunity.colorscheme.dracula-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
-  { import = "astrocommunity.colorscheme.hybrid-nvim" },
-  { import = "astrocommunity.colorscheme.tokyodark-nvim" },
-  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   "pantharshit00/vim-prisma",
   {
-    "Exafunction/codeium.nvim",
+    "Exafunction/codeium.vim",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "hrsh7th/nvim-cmp",
     },
-    config = function() require("codeium").setup {} end,
+    commit = "289eb724e5d6fab2263e94a1ad6e54afebefafb2",
+    event = "BufEnter",
+    config = function()
+      vim.keymap.set("i", "<C-j>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+    end,
   },
   { "marko-cerovac/material.nvim" },
   {
