@@ -15,6 +15,20 @@ return {
   { import = "astrocommunity.colorscheme.dracula-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   "pantharshit00/vim-prisma",
+  -- plugin for markdown preview
+  -- :MarkdownPreview to preview the markdown file
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
+  {
+    "williamboman/mason.nvim"
+  },
   {
     "Exafunction/codeium.vim",
     dependencies = {
@@ -43,7 +57,7 @@ return {
     keys = { "<space>m", "<space>j", "<space>s" },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
-      require("treesj").setup {--[[ your config ]]
+      require("treesj").setup { --[[ your config ]]
       }
     end,
   },

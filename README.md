@@ -1,4 +1,4 @@
-# AstroNvim Template
+# AstroNvim Template with custom config
 
 **NOTE:** This is for AstroNvim v4+
 
@@ -15,20 +15,37 @@ mv ~/.local/state/nvim ~/.local/state/nvim.bak
 mv ~/.cache/nvim ~/.cache/nvim.bak
 ```
 
-#### Create a new user repository from this template
+#### What does it includes:
 
-Press the "Use this template" button above to create a new repository to store your user configuration.
+##### Themes:
 
-You can also just clone this repository directly if you do not want to track your user configuration in GitHub.
+- Dracula
+- Catppuccin
+- Vscode
+- Material Ocean
 
-#### Clone the repository
+##### Plugins:
 
-```shell
-git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
-```
+- Prisma highlighter
+- Markdown preview
+- Codeium snippet
+- Auto Tag
 
-#### Start Neovim
+##### Mason LSP:
 
-```shell
-nvim
-```
+- ✓ css-lsp cssls
+- ✓ docker-compose-language-service docker_compose_language_service
+- ✓ dockerfile-language-server dockerls
+- ✓ emmet-language-server emmet_language_server
+- ✓ emmet-ls emmet_ls
+- ✓ eslint_d
+- ✓ html-lsp html
+- ✓ htmlhint
+- ✓ lua-language-server lua_ls
+- ✓ markdown-oxide markdown_oxide
+- ✓ prettier
+- ✓ prisma-language-server prismals
+- ✓ tailwindcss-language-server tailwindcss
+- ✓ ts-standard
+- ✓ typescript-language-server tsserver
+- ✓ yaml-language-server yamlls
