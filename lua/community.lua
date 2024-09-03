@@ -3,9 +3,8 @@
 -- AstroCommunity: import any community modules here
 -- We import this file in `lazy_setup.lua` before the `plugins/` folder.
 -- This guarantees that the specs are processed before any user plugins.
-vim.opt.relativenumber = false
-vim.opt.number = true
 vim.g.material_style = "deep ocean"
+
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
@@ -21,13 +20,36 @@ return {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && yarn install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
+    init = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
   },
+  -- turbo console
   {
-    "williamboman/mason.nvim"
+    "gaelph/logsitter.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("logsitter").setup {
+        path_format = "default",
+        separator = "=>",
+        prefix = "[log]:",
+        logging_functions = {
+          "log",
+          "debug",
+          "info",
+          "warn",
+          "error",
+          "fatal",
+          "trace",
+        },
+        mappings = {
+          toggle = "<C-l>",
+        },
+      }
+      vim.keymap.set("i", "<C-l>", function() require("logsitter").log() end, { silent = true })
+    end,
+  },
+  {
+    "williamboman/mason.nvim",
   },
   {
     "Exafunction/codeium.vim",

@@ -17,3 +17,7 @@ end
 
 require "lazy_setup"
 require "polish"
+
+vim.opt.relativenumber = false
+vim.opt.number = true
+vim.opt.wrap = true
