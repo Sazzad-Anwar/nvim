@@ -3,8 +3,7 @@
 -- AstroCommunity: import any community modules here
 -- We import this file in `lazy_setup.lua` before the `plugins/` folder.
 -- This guarantees that the specs are processed before any user plugins.
-vim.g.material_style = "deep ocean"
-
+--
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
@@ -14,6 +13,16 @@ return {
   { import = "astrocommunity.colorscheme.dracula-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   "pantharshit00/vim-prisma",
+  -- tailwindcss colorizer
+  {
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    -- optionally, override the default options:
+    config = function()
+      require("tailwindcss-colorizer-cmp").setup {
+        color_square_width = 2,
+      }
+    end,
+  },
   -- plugin for markdown preview
   -- :MarkdownPreview to preview the markdown file
   {
@@ -48,6 +57,16 @@ return {
     "stevearc/overseer.nvim",
     opts = {},
   },
+  -- Arial: Show file's function name to the left to move faster
+  {
+    "stevearc/aerial.nvim",
+    opts = {},
+    -- Optional dependencies
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
   -- turbo console
   {
     "gaelph/logsitter.nvim",
@@ -76,6 +95,26 @@ return {
   {
     "williamboman/mason.nvim",
   },
+  -- Move chunk of code or any word
+  {
+    "echasnovski/mini.move",
+    version = "*",
+    config = function()
+      require("mini.move").setup {
+        mappings = {
+          left = "<C-h>",
+          right = "<C-l>",
+          down = "<C-j>",
+          up = "<C-k>",
+          line_left = "<C-Left>",
+          line_right = "<C-Right>",
+          line_down = "<C-Down>",
+          line_up = "<C-Up>",
+        },
+      }
+    end,
+  },
+  -- Codeium auto completion extension
   {
     "Exafunction/codeium.vim",
     dependencies = {
@@ -88,7 +127,22 @@ return {
       vim.keymap.set("i", "<C-h>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
     end,
   },
-  { "marko-cerovac/material.nvim" },
+  {
+    "marko-cerovac/material.nvim",
+    config = function()
+      vim.g.material_style = "deep ocean"
+      require("material").setup {
+        disable = {
+          colored_cursor = true,
+          background = false,
+        },
+        high_visibility = {
+          lighter = false, -- Enable higher contrast text for lighter style
+          darker = false, -- Enable higher contrast text for darker style
+        },
+      }
+    end,
+  },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use main branch for the latest features
