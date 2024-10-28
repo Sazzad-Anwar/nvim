@@ -115,18 +115,18 @@ return {
     end,
   },
   -- Codeium auto completion extension
-  {
-    "Exafunction/codeium.vim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
-    commit = "289eb724e5d6fab2263e94a1ad6e54afebefafb2",
-    event = "BufEnter",
-    config = function()
-      vim.keymap.set("i", "<C-h>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
-    end,
-  },
+  -- {
+  --   "Exafunction/codeium.vim",
+  --   -- dependencies = {
+  --   --   "nvim-lua/plenary.nvim",
+  --   --   "hrsh7th/nvim-cmp",
+  --   -- },
+  --   -- commit = "289eb724e5d6fab2263e94a1ad6e54afebefafb2",
+  --   event = "BufEnter",
+  --   config = function()
+  --     vim.keymap.set("i", "<C-h>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+  --   end,
+  -- },
   {
     "marko-cerovac/material.nvim",
     config = function()
