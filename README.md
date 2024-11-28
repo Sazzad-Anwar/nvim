@@ -15,29 +15,29 @@ mv ~/.local/state/nvim ~/.local/state/nvim.bak
 mv ~/.cache/nvim ~/.cache/nvim.bak
 ```
 
-#### What does it includes:
+#### What does it includes
 
-##### Themes:
+##### Themes
 
 - Dracula
 - Catppuccin
 - Vscode
 - Material Ocean
 
-##### Plugins:
+##### Plugins
 
 - Prisma highlighter
 - Markdown preview
 - Codeium snippet
 - Auto Tag
 
-##### Mason LSP:
+##### Mason LSP
 
 - ✓ css-lsp cssls
 - ✓ docker-compose-language-service docker_compose_language_service
 - ✓ dockerfile-language-server dockerls
 - ✓ emmet-language-server emmet_language_server
-- ✓ emmet-ls emmet_ls
+- ✓ emmet_ls
 - ✓ eslint_d
 - ✓ html-lsp html
 - ✓ htmlhint

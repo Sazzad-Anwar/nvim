@@ -12,6 +12,9 @@ return {
   { import = "astrocommunity.colorscheme.mellow-nvim" },
   { import = "astrocommunity.colorscheme.dracula-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.scrolling.mini-animate" },
+  { import = "astrocommunity.search.grug-far-nvim" },
+  { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
   "pantharshit00/vim-prisma",
   -- tailwindcss colorizer
   {
@@ -47,7 +50,7 @@ return {
         position = "right",
         window = {
           position = "right",
-          width = 30,
+          width = 40,
         },
       }
     end,
@@ -86,10 +89,10 @@ return {
           "trace",
         },
         mappings = {
-          toggle = "<C-l>",
+          toggle = "<C-i>",
         },
       }
-      vim.keymap.set("i", "<C-l>", function() require("logsitter").log() end, { silent = true })
+      vim.keymap.set("i", "<C-i>", function() require("logsitter").log() end, { silent = true })
     end,
   },
   {
@@ -115,33 +118,21 @@ return {
     end,
   },
   -- Codeium auto completion extension
-  -- {
-  --   "Exafunction/codeium.vim",
-  --   -- dependencies = {
-  --   --   "nvim-lua/plenary.nvim",
-  --   --   "hrsh7th/nvim-cmp",
-  --   -- },
-  --   -- commit = "289eb724e5d6fab2263e94a1ad6e54afebefafb2",
-  --   event = "BufEnter",
-  --   config = function()
-  --     vim.keymap.set("i", "<C-h>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
-  --   end,
-  -- },
+  {
+    "Exafunction/codeium.vim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    -- commit = "289eb724e5d6fab2263e94a1ad6e54afebefafb2",
+    -- event = "BufEnter",
+    config = function()
+      vim.keymap.set("i", "<C-h>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+    end,
+  },
   {
     "marko-cerovac/material.nvim",
-    config = function()
-      vim.g.material_style = "deep ocean"
-      require("material").setup {
-        disable = {
-          colored_cursor = true,
-          background = false,
-        },
-        high_visibility = {
-          lighter = false, -- Enable higher contrast text for lighter style
-          darker = false,  -- Enable higher contrast text for darker style
-        },
-      }
-    end,
+    config = function() vim.g.material_style = "deep ocean" end,
   },
   {
     "kylechui/nvim-surround",
